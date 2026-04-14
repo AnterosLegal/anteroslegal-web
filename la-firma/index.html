@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Firma — José Manuel Simons | Anteros Legal</title>
+<meta name="description" content="Conoce a José Manuel Simons, fundador de Anteros Legal. 13 años de experiencia en derecho migratorio y empresarial en Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0a0a0a; --marfil:#f5f0e8; --dorado:#b8963e; --gris:#5a5a5a; --gris-claro:#e8e4dc; --blanco:#fafaf7; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--blanco);color:var(--negro);overflow-x:hidden;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4%;background:rgba(250,250,247,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,150,62,0.15);}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;color:var(--negro);}
+  .nav-logo img{height:38px;}
+  .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:0.05em;}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--gris);font-size:0.85rem;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--dorado);}
+  .nav-cta{background:var(--negro);color:var(--marfil)!important;padding:0.6rem 1.4rem;border-radius:2px;font-size:0.78rem!important;}
+
+  /* HERO FIRMA */
+  .firma-hero{min-height:60vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;overflow:hidden;}
+  .firma-hero-content{display:flex;flex-direction:column;justify-content:center;padding:5% 6% 5% 7%;}
+  .eyebrow{display:flex;align-items:center;gap:0.8rem;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dorado);font-weight:500;margin-bottom:1.5rem;}
+  .eyebrow::before{content:'';width:40px;height:1px;background:var(--dorado);}
+  .firma-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,4.5vw,3.8rem);font-weight:300;line-height:1.1;margin-bottom:1rem;}
+  .firma-hero h1 em{font-style:italic;color:var(--dorado);}
+  .firma-hero .subtitle{font-size:0.95rem;color:var(--gris);line-height:1.7;max-width:420px;}
+  .firma-hero-img{position:relative;background:var(--negro);overflow:hidden;}
+  .firma-hero-img img{width:100%;height:100%;object-fit:cover;opacity:0.8;mix-blend-mode:luminosity;}
+  .firma-hero-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(184,150,62,0.25) 0%,transparent 60%);}
+
+  /* CONTENIDO */
+  section{padding:5rem 7%;}
+  .section-label{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--dorado);font-weight:500;display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;}
+  .section-label::before{content:'';width:30px;height:1px;background:var(--dorado);}
+
+  /* BIO */
+  .bio-section{background:var(--blanco);}
+  .bio-grid{display:grid;grid-template-columns:300px 1fr;gap:4rem;align-items:start;margin-top:2.5rem;}
+  .bio-photo-wrap{position:relative;}
+  .bio-photo-wrap img{width:100%;border-radius:3px;}
+  .bio-photo-accent{position:absolute;top:-1.2rem;left:-1.2rem;right:1.2rem;bottom:1.2rem;border:1px solid var(--dorado);border-radius:3px;z-index:-1;}
+  .bio-card{background:var(--negro);color:var(--marfil);padding:1.5rem;margin-top:1.5rem;border-radius:3px;}
+  .bio-card-row{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:0.8rem;}
+  .bio-card-row:last-child{border:none;}
+  .bio-card-label{color:#666;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;}
+  .bio-card-val{color:var(--marfil);}
+
+  .bio-content h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;line-height:1.2;margin-bottom:1.5rem;}
+  .bio-content h2 em{font-style:italic;color:var(--dorado);}
+  .bio-content p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.95rem;}
+  .bio-content p strong{color:var(--negro);}
+  .bio-content blockquote{border-left:3px solid var(--dorado);padding:1rem 1.5rem;margin:2rem 0;background:var(--marfil);}
+  .bio-content blockquote p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--negro);margin:0;}
+
+  /* ÁREAS */
+  .areas-section{background:var(--marfil);}
+  .areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--gris-claro);margin-top:2.5rem;}
+  .area-card{background:var(--blanco);padding:2rem;position:relative;overflow:hidden;}
+  .area-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:0.3s;}
+  .area-card:hover{background:var(--marfil);}
+  .area-card:hover::before{background:var(--dorado);}
+  .area-icon{font-size:1.8rem;margin-bottom:1rem;}
+  .area-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:0.5rem;}
+  .area-card p{font-size:0.82rem;color:var(--gris);line-height:1.6;}
+
+  /* VALORES */
+  .valores-section{background:var(--negro);}
+  .valores-section .section-label{color:var(--dorado);}
+  .valores-section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;color:var(--marfil);margin-bottom:3rem;}
+  .valores-section h2 em{font-style:italic;color:var(--dorado);}
+  .valores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .valor-card{padding:2.5rem 2rem;border-right:1px solid rgba(255,255,255,0.07);}
+  .valor-card:last-child{border:none;}
+  .valor-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(184,150,62,0.2);line-height:1;margin-bottom:0.5rem;}
+  .valor-card h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--marfil);margin-bottom:0.5rem;}
+  .valor-card p{font-size:0.8rem;color:#777;line-height:1.6;}
+
+  /* CTA -->
+  .cta-section{background:var(--dorado);}
+  .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+  .cta-text h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--negro);}
+  .cta-text p{color:rgba(10,10,10,0.7);margin-top:0.5rem;}
+  .btn-dark{display:inline-flex;align-items:center;gap:0.5rem;background:var(--negro);color:var(--marfil);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.3s;}
+  .btn-dark:hover{background:var(--blanco);color:var(--negro);}
+
+  footer{background:#060606;color:#555;padding:2.5rem 7%;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;}
+  footer a{color:#444;text-decoration:none;}
+  footer a:hover{color:var(--dorado);}
+  .footer-links{display:flex;gap:1.5rem;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .firma-hero{grid-template-columns:1fr;}
+    .firma-hero-img{height:280px;order:-1;}
+    .bio-grid{grid-template-columns:1fr;}
+    .areas-grid{grid-template-columns:1fr;}
+    .valores-grid{grid-template-columns:1fr 1fr;}
+    .cta-inner{flex-direction:column;text-align:center;}
+    section{padding:3.5rem 5%;}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="nav-logo">
+    <img src="../images/logo.jpg" alt="Anteros Legal" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Anteros Legal</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../">Inicio</a></li>
+    <li><a href="./">La Firma</a></li>
+    <li><a href="../#servicios">Servicios</a></li>
+    <li><a href="../responsabilidad-social/">Responsabilidad Social</a></li>
+    <li><a href="../#contacto" class="nav-cta">Agendar Consulta</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="firma-hero">
+  <div class="firma-hero-content">
+    <div class="eyebrow">La Firma</div>
+    <h1>Anteros Legal<br><em>Una firma con propósito</em></h1>
+    <p class="subtitle">Boutique jurídica especializada en derecho migratorio y empresarial. 13 años construyendo relaciones de confianza con migrantes, emprendedores y empresas en Chile.</p>
+  </div>
+  <div class="firma-hero-img">
+    <img src="../images/hero-la-firma.jpg" alt="Anteros Legal">
+    <div class="firma-hero-img-overlay"></div>
+  </div>
+</div>
+
+<!-- BIO -->
+<section class="bio-section">
+  <div class="section-label">Fundador</div>
+  <div class="bio-grid">
+    <div>
+      <div class="bio-photo-wrap">
+        <div class="bio-photo-accent"></div>
+        <img src="../images/perfilJMS.jpg" alt="José Manuel Simons">
+      </div>
+      <div class="bio-card">
+        <div class="bio-card-row">
+          <span class="bio-card-label">Especialidad</span>
+          <span class="bio-card-val">Derecho Migratorio</span>
+        </div>
+        <div class="bio-card-row">
+          <span class="bio-card-label">Segunda especialidad</span>
+          <span class="bio-card-val">Derecho Empresarial</span>
+        </div>
+        <div class="bio-card-row">
+          <span class="bio-card-label">Sede</span>
+          <span class="bio-card-val">Punta Arenas, Chile</span>
+        </div>
+        <div class="bio-card-row">
+          <span class="bio-card-label">Atención remota</span>
+          <span class="bio-card-val">LATAM completo</span>
+        </div>
+        <div class="bio-card-row">
+          <span class="bio-card-label">Experiencia</span>
+          <span class="bio-card-val">13 años</span>
+        </div>
+        <div class="bio-card-row">
+          <span class="bio-card-label">Idiomas</span>
+          <span class="bio-card-val">Español</span>
+        </div>
+      </div>
+    </div>
+    <div class="bio-content">
+      <h2>José Manuel Simons<br><em>Abogado fundador</em></h2>
+
+      <p>José Manuel Simons es abogado especializado en <strong>derecho migratorio y empresarial</strong>, con sede en Punta Arenas y atención a toda Latinoamérica de forma remota. Fundó Anteros Legal con una premisa clara: el acceso a justicia legal de calidad no debería depender del tamaño de la ciudad donde vives ni del país del que vienes.</p>
+
+      <blockquote><p>"Anteros, en la mitología griega, es el dios que responde al amor no correspondido y representa la pasión que se construye con tiempo, compromiso y reciprocidad. Esa es nuestra filosofía: una relación legal que se construye sobre confianza mutua y resultados reales."</p></blockquote>
+
+      <p>A lo largo de <strong>13 años de trayectoria</strong>, ha acompañado a <strong>más de 500 personas y empresas</strong> en procesos migratorios complejos, constituciones de empresas, defensas ante expulsiones y trámites de residencia. Su enfoque combina rigor jurídico con tecnología: fue pionero en digitalizar la gestión de casos en Magallanes, integrando CRM, automatizaciones y seguimiento en tiempo real.</p>
+
+      <p>Ha participado como colaborador académico con la <strong>Universidad de Magallanes (UMAG)</strong>, ha desarrollado alianzas con organizaciones sociales como <strong>Liberando Colores</strong> y mantiene vínculos activos con el Colegio de Abogados. Su trabajo ha sido reconocido por medios locales como referente en derecho migratorio en la Región de Magallanes.</p>
+
+      <p>En 2026, lidera la expansión de Anteros Legal hacia el mercado LATAM: atención 100% remota para venezolanos, colombianos y peruanos que aún están en sus países de origen y quieren iniciar su proceso migratorio antes de viajar a Chile.</p>
+
+      <p>Su visión a largo plazo es convertir Anteros Legal en la <strong>firma boutique de referencia para la diáspora latinoamericana en Chile</strong> — no solo como proveedor de servicios legales, sino como aliado estratégico para quienes deciden construir su vida y sus proyectos en este país.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE PRÁCTICA -->
+<section class="areas-section">
+  <div class="section-label">Especialidades</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:300;">Áreas de práctica</h2>
+  <div class="areas-grid">
+    <div class="area-card">
+      <div class="area-icon">⚖️</div>
+      <h3>Derecho Migratorio</h3>
+      <p>Residencias temporales y definitivas, nacionalización, reunificación familiar, defensa ante expulsiones y recursos de protección. Especialista en Ley 21.325.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🏢</div>
+      <h3>Derecho Empresarial</h3>
+      <p>Constitución de empresas (SpA, EIRL, SRL), contratos comerciales, cumplimiento laboral, asesoría mensual y protección patrimonial para emprendedores y PYMES.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🛡️</div>
+      <h3>Defensa Constitucional</h3>
+      <p>Recursos de protección, amparos constitucionales y representación ante tribunales superiores en casos que afectan derechos fundamentales.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🌎</div>
+      <h3>Compliance Migratorio Empresarial</h3>
+      <p>Auditorías, políticas internas, contratos para trabajadores migrantes y certificación de empleador regular. Para empresas que contratan migrantes en Chile.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">📡</div>
+      <h3>Asesoría LATAM Remota</h3>
+      <p>Servicio 100% digital para latinoamericanos que quieren venir a Chile. Atención desde Venezuela, Colombia, Perú, Bolivia y otros países antes del viaje.</p>
+    </div>
+    <div class="area-card">
+      <div class="area-icon">🤝</div>
+      <h3>Mentoría Legal para Emprendedores</h3>
+      <p>Acompañamiento estratégico para migrantes que quieren emprender en Chile: constitución, cumplimiento, visas para equipo y protección de la empresa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALORES -->
+<section class="valores-section">
+  <div class="section-label">Nuestra filosofía</div>
+  <h2>Lo que nos <em>define</em></h2>
+  <div class="valores-grid">
+    <div class="valor-card">
+      <div class="valor-num">01</div>
+      <h3>Claridad</h3>
+      <p>Te decimos exactamente qué puedes esperar, cuánto tarda y cuánto cuesta. Sin letra chica.</p>
+    </div>
+    <div class="valor-card">
+      <div class="valor-num">02</div>
+      <h3>Compromiso</h3>
+      <p>Tu caso no es un expediente. Es una persona, una familia o un proyecto. Lo tratamos así.</p>
+    </div>
+    <div class="valor-card">
+      <div class="valor-num">03</div>
+      <h3>Tecnología</h3>
+      <p>CRM propio, automatizaciones y seguimiento en tiempo real. Sabemos dónde está tu caso en todo momento.</p>
+    </div>
+    <div class="valor-card">
+      <div class="valor-num">04</div>
+      <h3>Acceso</h3>
+      <p>Atención remota para toda LATAM. La calidad jurídica no debería depender de la geografía.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>¿Listo para dar el siguiente paso?</h2>
+      <p>Agenda una consulta y revisamos tu caso juntos. Sin compromiso.</p>
+    </div>
+    <a href="https://calendly.com/anteroslegal" class="btn-dark" target="_blank">Agendar Consulta →</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Anteros Legal — Punta Arenas, Chile</span>
+  <div class="footer-links">
+    <a href="../">Inicio</a>
+    <a href="../#servicios">Servicios</a>
+    <a href="../#contacto">Contacto</a>
+    <a href="../privacidad/">Privacidad</a>
+  </div>
+</footer>
+</body>
+</html>

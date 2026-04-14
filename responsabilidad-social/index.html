@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsabilidad Social | Anteros Legal</title>
+<meta name="description" content="Anteros Legal y su compromiso con el acceso a la justicia, el acompañamiento a comunidades migrantes y el impacto social en Punta Arenas, Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --negro:#0a0a0a; --marfil:#f5f0e8; --dorado:#b8963e; --gris:#5a5a5a; --gris-claro:#e8e4dc; --blanco:#fafaf7; --verde:#2d5a3d; --verde-claro:#e8f0eb; }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'DM Sans',sans-serif;background:var(--blanco);color:var(--negro);overflow-x:hidden;}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4%;background:rgba(250,250,247,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,150,62,0.15);}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;color:var(--negro);}
+  .nav-logo img{height:38px;}
+  .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;letter-spacing:0.05em;}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--gris);font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--dorado);}
+  .nav-cta{background:var(--negro);color:var(--marfil)!important;padding:0.6rem 1.4rem;border-radius:2px;font-size:0.78rem!important;}
+
+  .hero{min-height:70vh;background:var(--verde);display:flex;align-items:flex-end;padding:8rem 7% 5rem;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(184,150,62,0.15) 0%,transparent 60%);}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;width:100%;position:relative;z-index:2;}
+  .hero-eyebrow{display:flex;align-items:center;gap:0.8rem;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--dorado);font-weight:500;margin-bottom:1.5rem;}
+  .hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--dorado);}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:300;line-height:1.1;color:var(--marfil);}
+  .hero h1 em{font-style:italic;color:var(--dorado);}
+  .hero-desc{font-size:1rem;line-height:1.7;color:rgba(245,240,232,0.75);max-width:400px;margin-top:1.2rem;}
+  .hero-quote{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:rgba(245,240,232,0.6);line-height:1.5;border-left:2px solid var(--dorado);padding-left:1.5rem;}
+
+  section{padding:5.5rem 7%;}
+  .section-label{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--dorado);font-weight:500;display:flex;align-items:center;gap:0.8rem;margin-bottom:0.8rem;}
+  .section-label::before{content:'';width:30px;height:1px;background:var(--dorado);}
+  h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;line-height:1.2;color:var(--negro);margin-bottom:1.2rem;}
+  h2 em{font-style:italic;color:var(--dorado);}
+
+  .manifiesto{background:var(--marfil);}
+  .manifiesto-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center;margin-top:2.5rem;}
+  .manifiesto-texto p{color:var(--gris);line-height:1.85;margin-bottom:1.2rem;font-size:0.95rem;}
+  .manifiesto-texto p strong{color:var(--negro);}
+  .manifiesto-numeros{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--gris-claro);}
+  .numero-card{background:var(--blanco);padding:2rem;}
+  .numero-big{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--dorado);line-height:1;}
+  .numero-label{font-size:0.78rem;color:var(--gris);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.4rem;}
+
+  .iniciativas{background:var(--blanco);}
+  .iniciativas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--gris-claro);margin-top:2.5rem;}
+  .iniciativa-card{background:var(--blanco);padding:2.5rem;position:relative;overflow:hidden;transition:background 0.3s;}
+  .iniciativa-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:transparent;transition:background 0.3s;}
+  .iniciativa-card:hover{background:var(--marfil);}
+  .iniciativa-card:hover::after{background:var(--dorado);}
+  .ini-icon{font-size:2rem;margin-bottom:1rem;}
+  .ini-tag{display:inline-block;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.25rem 0.7rem;background:var(--verde-claro);color:var(--verde);border-radius:2px;margin-bottom:0.8rem;}
+  .iniciativa-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;margin-bottom:0.6rem;}
+  .iniciativa-card p{font-size:0.83rem;color:var(--gris);line-height:1.65;}
+
+  .principios{background:var(--negro);}
+  .principios .section-label{color:var(--dorado);}
+  .principios h2{color:var(--marfil);}
+  .principios-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;}
+  .principio{padding:2.5rem 2rem;border-right:1px solid rgba(255,255,255,0.07);}
+  .principio:last-child{border:none;}
+  .principio-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:rgba(184,150,62,0.2);line-height:1;margin-bottom:0.8rem;}
+  .principio h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--marfil);margin-bottom:0.5rem;}
+  .principio p{font-size:0.8rem;color:#777;line-height:1.6;}
+
+  .alianzas{background:var(--marfil);}
+  .alianzas-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;}
+  .alianza-item{background:var(--blanco);padding:1.8rem;border-radius:2px;border-left:3px solid var(--dorado);}
+  .alianza-nombre{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;margin-bottom:0.4rem;}
+  .alianza-desc{font-size:0.82rem;color:var(--gris);line-height:1.6;}
+
+  .compromiso{background:var(--dorado);padding:5rem 7%;}
+  .compromiso-inner{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;}
+  .compromiso h2{color:var(--negro);margin-bottom:0.8rem;}
+  .compromiso p{color:rgba(10,10,10,0.7);font-size:0.95rem;line-height:1.7;max-width:500px;}
+  .btn-dark{display:inline-flex;align-items:center;gap:0.5rem;background:var(--negro);color:var(--marfil);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.3s;white-space:nowrap;}
+  .btn-dark:hover{background:var(--blanco);color:var(--negro);}
+
+  footer{background:#060606;color:#555;padding:2.5rem 7%;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;flex-wrap:wrap;gap:1rem;}
+  footer a{color:#444;text-decoration:none;}
+  footer a:hover{color:var(--dorado);}
+  .footer-links{display:flex;gap:1.5rem;}
+
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .hero-grid,.manifiesto-grid,.compromiso-inner{grid-template-columns:1fr;}
+    .hero-quote{display:none;}
+    .iniciativas-grid{grid-template-columns:1fr;}
+    .principios-grid{grid-template-columns:1fr 1fr;}
+    .alianzas-lista{grid-template-columns:1fr;}
+    section{padding:3.5rem 5%;}
+    .hero{padding:7rem 5% 4rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="nav-logo">
+    <img src="../images/logo.jpg" alt="Anteros Legal" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Anteros Legal</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../">Inicio</a></li>
+    <li><a href="../la-firma/">La Firma</a></li>
+    <li><a href="../#servicios">Servicios</a></li>
+    <li><a href="./">Responsabilidad Social</a></li>
+    <li><a href="../#contacto" class="nav-cta">Agendar Consulta</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">Responsabilidad Social</div>
+      <h1>El derecho al servicio<br>de las <em>personas</em></h1>
+      <p class="hero-desc">Creemos que el acceso a la justicia no debería depender del dinero que tienes ni del país del que vienes. Una parte de nuestra capacidad está siempre al servicio de quien más lo necesita.</p>
+    </div>
+    <div>
+      <p class="hero-quote">"La ley existe para proteger a las personas. Cuando no cumple ese propósito, es deber del abogado recordárselo."<br><br><span style="font-size:0.8rem;font-style:normal;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.4);">— José Manuel Simons</span></p>
+    </div>
+  </div>
+</div>
+
+<section class="manifiesto">
+  <div class="section-label">Nuestra postura</div>
+  <div class="manifiesto-grid">
+    <div class="manifiesto-texto">
+      <h2>Por qué hacemos<br><em>esto</em></h2>
+      <p>La migración no es solo un proceso legal. Es una decisión de vida tomada en condiciones de incertidumbre extrema. Quien migra deja atrás una red de apoyo, una lengua cotidiana, una identidad construida. Llega a un sistema nuevo, con reglas que nadie le explicó.</p>
+      <p>En Anteros Legal <strong>no vemos eso como una estadística</strong>. Lo vemos como una responsabilidad. Cada persona que navega el sistema migratorio chileno merece información clara, acceso real y representación digna — independientemente de su situación económica.</p>
+      <p>La responsabilidad social no es una campaña de marketing. Es la razón por la que José Manuel fundó esta firma en Punta Arenas, en el extremo sur del continente, donde el Estado llega tarde y los abogados especializados llegan menos.</p>
+    </div>
+    <div class="manifiesto-numeros">
+      <div class="numero-card"><div class="numero-big">13</div><div class="numero-label">Años de presencia en Magallanes</div></div>
+      <div class="numero-card"><div class="numero-big">+500</div><div class="numero-label">Personas acompañadas</div></div>
+      <div class="numero-card"><div class="numero-big">Pro<br>Bono</div><div class="numero-label">Casos sin costo para familias vulnerables</div></div>
+      <div class="numero-card"><div class="numero-big">3</div><div class="numero-label">Alianzas sociales activas</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="iniciativas">
+  <div class="section-label">Lo que hacemos</div>
+  <h2>Iniciativas <em>activas</em></h2>
+  <div class="iniciativas-grid">
+    <div class="iniciativa-card">
+      <div class="ini-icon">🌿</div>
+      <span class="ini-tag">Alianza activa</span>
+      <h3>Liberando Colores</h3>
+      <p>Colaboración continua con esta organización social que acompaña a comunidades migrantes en situación de vulnerabilidad en Punta Arenas. Aportamos orientación legal gratuita, talleres de derechos y representación en casos urgentes.</p>
+    </div>
+    <div class="iniciativa-card">
+      <div class="ini-icon">🎓</div>
+      <span class="ini-tag">Academia</span>
+      <h3>Universidad de Magallanes (UMAG)</h3>
+      <p>Colaboración académica con la Facultad de Ciencias Jurídicas y Sociales. Talleres de derecho migratorio para estudiantes, compartiendo conocimiento especializado desde la práctica real.</p>
+    </div>
+    <div class="iniciativa-card">
+      <div class="ini-icon">⚖️</div>
+      <span class="ini-tag">Pro Bono</span>
+      <h3>Casos Pro Bono</h3>
+      <p>Parte de nuestra capacidad mensual está reservada para casos gratuitos: víctimas de expulsiones arbitrarias, familias con menores en riesgo y personas que enfrentan procedimientos migratorios sin ningún tipo de representación.</p>
+    </div>
+    <div class="iniciativa-card">
+      <div class="ini-icon">📢</div>
+      <span class="ini-tag">Educación</span>
+      <h3>Talleres de Derechos Migratorios</h3>
+      <p>Talleres presenciales y online donde explicamos en lenguaje simple los derechos de toda persona migrante en Chile: salud, educación, trabajo, regularización. Sin costo. Para quien lo necesite.</p>
+    </div>
+    <div class="iniciativa-card">
+      <div class="ini-icon">📰</div>
+      <span class="ini-tag">Información</span>
+      <h3>Contenido Legal Gratuito</h3>
+      <p>Guías, ebooks y contenido en redes que explica procesos migratorios en lenguaje accesible. Objetivo: que ningún migrante tome una decisión legal por desinformación. Más de 500.000 impresiones en 2025.</p>
+    </div>
+    <div class="iniciativa-card">
+      <div class="ini-icon">🤝</div>
+      <span class="ini-tag">Red</span>
+      <h3>Red de Derivación Urgente</h3>
+      <p>Coordinamos con organizaciones sociales, consulados y organismos públicos para identificar casos urgentes. Cuando no podemos atender directamente, nos aseguramos de que alguien lo haga.</p>
+    </div>
+  </div>
+</section>
+
+<section class="principios">
+  <div class="section-label">Lo que nos guía</div>
+  <h2>Principios que no <em>negociamos</em></h2>
+  <div class="principios-grid">
+    <div class="principio"><div class="principio-num">01</div><h3>Dignidad</h3><p>Toda persona merece ser atendida con el mismo respeto, independientemente de su situación migratoria o capacidad de pago.</p></div>
+    <div class="principio"><div class="principio-num">02</div><h3>Claridad</h3><p>El lenguaje legal no debería ser una barrera. Explicamos los derechos en el idioma que la persona entiende.</p></div>
+    <div class="principio"><div class="principio-num">03</div><h3>Acceso</h3><p>La justicia no debería tener precio de entrada. Reservamos capacidad para quienes no pueden pagar.</p></div>
+    <div class="principio"><div class="principio-num">04</div><h3>Impacto</h3><p>Medimos el éxito por el cambio real en la vida de las personas, no por las causas ganadas en papel.</p></div>
+  </div>
+</section>
+
+<section class="alianzas">
+  <div class="section-label">Colaboramos con</div>
+  <h2>Alianzas y <em>vínculos</em></h2>
+  <div class="alianzas-lista">
+    <div class="alianza-item"><div class="alianza-nombre">Liberando Colores</div><p class="alianza-desc">Organización social de acompañamiento a comunidades migrantes en Punta Arenas. Alianza de orientación legal gratuita y representación en casos urgentes.</p></div>
+    <div class="alianza-item"><div class="alianza-nombre">Universidad de Magallanes</div><p class="alianza-desc">Colaboración académica con la UMAG para formación en derecho migratorio. Talleres para estudiantes de derecho y actividades de extensión universitaria.</p></div>
+    <div class="alianza-item"><div class="alianza-nombre">Colegio de Abogados de Chile</div><p class="alianza-desc">Participación activa en el Colegio como espacio de formación, ética profesional y red de apoyo para el ejercicio responsable del derecho.</p></div>
+    <div class="alianza-item"><div class="alianza-nombre">Organismos Consulares LATAM</div><p class="alianza-desc">Coordinación con consulados de Venezuela, Colombia, Perú y Bolivia para derivación de casos urgentes y orientación a ciudadanos recién llegados.</p></div>
+    <div class="alianza-item"><div class="alianza-nombre">ACNUR Chile</div><p class="alianza-desc">Coordinación en casos de refugio y protección internacional. Derivación de casos que requieren protección especial bajo el Convenio de Ginebra.</p></div>
+    <div class="alianza-item"><div class="alianza-nombre">Municipalidad de Punta Arenas</div><p class="alianza-desc">Colaboración en programas de integración y talleres de derechos para migrantes coordinados desde la Oficina Municipal de Migrantes.</p></div>
+  </div>
+</section>
+
+<section class="compromiso">
+  <div class="compromiso-inner">
+    <div>
+      <h2>¿Necesitas ayuda y no<br>puedes costear un abogado?</h2>
+      <p>Si estás en situación de vulnerabilidad — expulsión inminente, familia en riesgo, menores sin documentos — escríbenos. Evaluamos cada caso y, si está dentro de nuestra capacidad pro bono, te acompañamos sin costo. Si no podemos atenderte, te derivamos a quien pueda.</p>
+    </div>
+    <a href="https://api.whatsapp.com/message/J5RDLFI23SHDI1?autoload=1&app_absent=0" class="btn-dark" target="_blank">Escribir ahora →</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Anteros Legal — Punta Arenas, Chile</span>
+  <div class="footer-links">
+    <a href="../">Inicio</a>
+    <a href="../la-firma/">La Firma</a>
+    <a href="../#servicios">Servicios</a>
+    <a href="../#contacto">Contacto</a>
+    <a href="../privacidad/">Privacidad</a>
+  </div>
+</footer>
+</body>
+</html>

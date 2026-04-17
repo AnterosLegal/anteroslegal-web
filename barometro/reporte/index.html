@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barómetro Emprendedor 2026 — Anteros Legal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0d0d;--papel:#f4f0e6;--crema:#ece7d8;--rojo:#c0392b;--dorado:#b8963e;--gris:#7a7165;--gris-claro:#ddd8cc;--verde:#1a5a30;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'IBM Plex Sans',sans-serif;background:var(--papel);color:var(--ink);overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:var(--ink);padding:0.8rem 5%;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.nav-brand{font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--papel);text-decoration:none;font-weight:700;}
+.nav-title{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(244,240,230,0.4);text-align:center;flex:1;}
+.nav-cta{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--dorado);text-decoration:none;white-space:nowrap;}
+.portada{min-height:82vh;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 7% 5rem;position:relative;overflow:hidden;}
+.portada::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,0.02) 60px);}
+.portada-volanta{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--dorado);margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem;position:relative;z-index:1;}
+.portada-volanta::before{content:'';width:24px;height:1px;background:var(--dorado);}
+.portada h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6rem);font-weight:900;line-height:0.95;color:var(--papel);position:relative;z-index:1;margin-bottom:1.5rem;}
+.portada h1 em{font-style:italic;display:block;color:var(--dorado);}
+.portada-sub{font-size:0.88rem;line-height:1.7;color:rgba(244,240,230,0.5);max-width:560px;margin-bottom:3rem;position:relative;z-index:1;}
+.portada-kpis{display:flex;gap:2rem;flex-wrap:wrap;position:relative;z-index:1;}
+.pkpi{padding-right:2rem;border-right:1px solid rgba(255,255,255,0.1);}
+.pkpi:last-child{border:none;}
+.pkpi-n{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--dorado);line-height:1;}
+.pkpi-l{font-size:0.68rem;color:rgba(244,240,230,0.4);letter-spacing:0.04em;margin-top:0.2rem;}
+.bg-num{position:absolute;right:-2rem;bottom:-3rem;font-family:'Playfair Display',serif;font-size:22rem;font-weight:900;line-height:1;color:rgba(255,255,255,0.025);pointer-events:none;user-select:none;}
+.indice{background:var(--crema);padding:1.8rem 7%;border-bottom:1px solid var(--gris-claro);}
+.indice-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gris);margin-bottom:0.8rem;}
+.indice-links{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.indice-link{font-size:0.76rem;color:var(--gris);text-decoration:none;padding:0.28rem 0.75rem;border:1px solid var(--gris-claro);transition:all 0.2s;}
+.indice-link:hover{border-color:var(--ink);color:var(--ink);}
+.acord{border-bottom:1px solid var(--gris-claro);}
+.acord-hd{width:100%;background:none;border:none;cursor:pointer;padding:1.8rem 7%;display:flex;align-items:center;justify-content:space-between;gap:2rem;text-align:left;transition:background 0.2s;}
+.acord-hd:hover,.acord-hd.open{background:var(--crema);}
+.acord-left{display:flex;align-items:center;gap:1.5rem;flex:1;}
+.acord-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:0.18em;color:var(--gris);flex-shrink:0;}
+.acord-tit{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;line-height:1.2;}
+.acord-tit em{font-style:italic;color:var(--rojo);}
+.acord-prev{font-size:0.75rem;color:var(--gris);max-width:380px;line-height:1.4;margin-top:0.2rem;}
+.acord-arr{font-size:1rem;color:var(--gris);transition:transform 0.3s;flex-shrink:0;}
+.acord-hd.open .acord-arr{transform:rotate(180deg);}
+.acord-body{display:none;padding:0 7% 3rem;}
+.acord-body.open{display:block;}
+.txt{font-size:0.86rem;line-height:1.8;color:var(--gris);margin-bottom:1rem;}
+.txt strong{color:var(--ink);}
+.cita{border-left:3px solid var(--rojo);padding:1.2rem 1.5rem;margin:2rem 0;background:var(--crema);}
+.cita p{font-family:'Playfair Display',serif;font-size:0.98rem;font-style:italic;line-height:1.6;margin-bottom:0.5rem;}
+.cita-f{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gris);}
+.dato{background:var(--ink);color:var(--papel);padding:1.8rem 2.5rem;margin:2rem 0;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;}
+.dato-n{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--dorado);line-height:1;white-space:nowrap;}
+.dato-c h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--papel);margin-bottom:0.3rem;}
+.dato-c p{font-size:0.78rem;color:rgba(244,240,230,0.55);line-height:1.6;}
+.grid-k{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1px;background:var(--gris-claro);margin:2rem 0;}
+.kcard{background:var(--papel);padding:1.4rem;transition:background 0.2s;}
+.kcard:hover{background:var(--crema);}
+.kcard-n{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:900;color:var(--rojo);line-height:1;margin-bottom:0.4rem;}
+.kcard-l{font-size:0.76rem;color:var(--gris);line-height:1.4;}
+.kcard-s{font-family:'IBM Plex Mono',monospace;font-size:0.57rem;letter-spacing:0.06em;color:var(--gris-claro);text-transform:uppercase;margin-top:0.3rem;}
+.tw{overflow-x:auto;margin:2rem 0;}
+table{width:100%;border-collapse:collapse;font-size:0.8rem;}
+thead tr{background:var(--ink);}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,240,230,0.7);padding:0.8rem 0.9rem;text-align:left;font-weight:500;}
+tbody tr{border-bottom:1px solid var(--gris-claro);}
+tbody tr:hover{background:var(--crema);}
+tbody td{padding:0.7rem 0.9rem;vertical-align:top;line-height:1.5;}
+.bd{display:inline-block;padding:0.18rem 0.45rem;border-radius:2px;font-family:'IBM Plex Mono',monospace;font-size:0.56rem;letter-spacing:0.08em;text-transform:uppercase;}
+.bd-r{background:#fde8e6;color:var(--rojo);}
+.bd-g{background:#e6f4ea;color:var(--verde);}
+.bd-d{background:#fdf5e6;color:var(--dorado);}
+.err-item{display:grid;grid-template-columns:44px 1fr;gap:1.2rem;padding:1.4rem 0;border-bottom:1px solid var(--gris-claro);align-items:start;}
+.err-item:last-child{border:none;}
+.err-n{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:var(--gris-claro);line-height:1;}
+.err-c h4{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:700;margin-bottom:0.3rem;}
+.err-c p{font-size:0.78rem;color:var(--gris);line-height:1.6;}
+.err-a{display:inline-flex;align-items:center;gap:0.3rem;margin-top:0.4rem;font-size:0.68rem;color:var(--rojo);font-family:'IBM Plex Mono',monospace;}
+.perfil-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink);margin:2rem 0;}
+.pfitem{background:var(--papel);padding:1.6rem;}
+.pfitem h4{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:700;margin-bottom:0.4rem;}
+.pfitem p{font-size:0.78rem;color:var(--gris);line-height:1.6;}
+.cambios-g{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin:2rem 0;}
+.cc{border:1px solid var(--gris-claro);padding:1.3rem;transition:all 0.2s;}
+.cc:hover{border-color:var(--ink);background:var(--crema);}
+.cc-tag{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rojo);margin-bottom:0.5rem;display:block;}
+.cc h4{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:700;margin-bottom:0.3rem;}
+.cc p{font-size:0.76rem;color:var(--gris);line-height:1.5;}
+.dir-cat{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rojo);padding-bottom:0.5rem;border-bottom:1px solid var(--gris-claro);margin:2rem 0 1rem;}
+.der-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:0.7rem;margin-bottom:1.5rem;}
+.der-c{background:var(--crema);padding:1.1rem;display:flex;gap:0.7rem;align-items:flex-start;}
+.der-c h4{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem;}
+.der-c p{font-size:0.75rem;color:var(--gris);line-height:1.5;}
+.tel-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink);margin:1.5rem 0;}
+.tel-i{background:var(--papel);padding:1.4rem;text-align:center;}
+.tel-n{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--rojo);line-height:1;margin-bottom:0.3rem;}
+.tel-l{font-size:0.72rem;color:var(--gris);}
+.cta-f{background:var(--ink);padding:5rem 7%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.cta-f h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:900;color:var(--papel);line-height:1.15;margin-bottom:1rem;}
+.cta-f h2 em{font-style:italic;color:var(--dorado);}
+.cta-f p{font-size:0.84rem;color:rgba(244,240,230,0.55);line-height:1.7;margin-bottom:1.8rem;}
+.btn-p{display:inline-flex;padding:0.85rem 1.8rem;background:var(--rojo);color:var(--papel);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;transition:background 0.2s;}
+.btn-p:hover{background:var(--dorado);color:var(--ink);}
+.btn-s{display:inline-flex;padding:0.85rem 1.8rem;border:1px solid rgba(255,255,255,0.2);color:rgba(244,240,230,0.6);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;transition:all 0.2s;margin-left:0.8rem;}
+.btn-s:hover{border-color:var(--papel);color:var(--papel);}
+.sv-g{display:flex;flex-direction:column;gap:0.5rem;}
+.sv-i{display:flex;align-items:center;gap:0.9rem;padding:0.85rem 1rem;border:1px solid rgba(255,255,255,0.08);transition:border-color 0.2s;}
+.sv-i:hover{border-color:rgba(255,255,255,0.25);}
+.sv-n{font-size:0.8rem;color:rgba(244,240,230,0.7);}
+.sv-d{font-size:0.68rem;color:rgba(244,240,230,0.35);margin-top:0.1rem;}
+footer{background:#060606;padding:2rem 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.06em;color:#444;}
+footer a{color:#555;text-decoration:none;}
+footer a:hover{color:var(--dorado);}
+#puerta{position:fixed;inset:0;z-index:999;background:var(--papel);display:none;align-items:center;justify-content:center;flex-direction:column;gap:1rem;text-align:center;padding:2rem;}
+#puerta h2{font-family:'Playfair Display',serif;font-size:1.4rem;}
+#puerta p{font-size:0.85rem;color:var(--gris);}
+#puerta a{display:inline-block;margin-top:0.5rem;padding:0.8rem 1.8rem;background:var(--ink);color:var(--papel);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;}
+.chart-label{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gris);margin:2rem 0 0.8rem;}
+@media(max-width:900px){.cta-f,.cambios-g,.perfil-g{grid-template-columns:1fr;}.dato{grid-template-columns:1fr;}.portada h1{font-size:3rem;}.bg-num{display:none;}.tel-g{grid-template-columns:repeat(2,1fr);}.acord-prev{display:none;}}
+</style>
+</head>
+<body>
+<div id="puerta"><h2>Acceso requerido</h2><p>Este reporte es gratuito — solo necesitas registrarte.</p><a href="../">Ingresar →</a></div>
+
+<nav><a href="/" class="nav-brand">Anteros Legal</a><span class="nav-title">Barómetro Emprendedor 2026</span><a href="/consulta/" class="nav-cta">Consultar →</a></nav>
+
+<header class="portada">
+  <div class="portada-volanta">Reporte Anual · Edición 2026 · Anteros Legal SpA</div>
+  <h1>Barómetro<br><em>Emprendedor</em><br>Punta Arenas</h1>
+  <p class="portada-sub">Datos duros de realidad legal y migratoria para emprendedores de la Región de Magallanes. Fuentes: SERMIG Reporte Nº5 · OIM Chile · Anteros Legal, 2026.</p>
+  <div class="portada-kpis">
+    <div class="pkpi"><div class="pkpi-n">+842%</div><div class="pkpi-l">Visas MERCOSUR bolivianas<br>2023 → 2025</div></div>
+    <div class="pkpi"><div class="pkpi-n">23.778</div><div class="pkpi-l">Expulsiones dictadas<br>en 2025 — récord</div></div>
+    <div class="pkpi"><div class="pkpi-n">8</div><div class="pkpi-l">Secciones de datos<br>en este reporte</div></div>
+    <div class="pkpi"><div class="pkpi-n">100%</div><div class="pkpi-l">Gratuito · Acceso<br>inmediato</div></div>
+  </div>
+  <div class="bg-num">26</div>
+</header>
+
+<div class="indice">
+  <div class="indice-label">Índice de contenido — haz clic para expandir</div>
+  <div class="indice-links">
+    <a href="#s1" class="indice-link">01 · Chile en cifras</a>
+    <a href="#s2" class="indice-link">02 · Perfil Magallanes</a>
+    <a href="#s3" class="indice-link">03 · 5 errores del emprendedor</a>
+    <a href="#s4" class="indice-link">04 · Fiscalizaciones por rubro</a>
+    <a href="#s5" class="indice-link">05 · Cambios legales 2026</a>
+    <a href="#s6" class="indice-link">06 · Los 7 datos clave</a>
+    <a href="#s7" class="indice-link">A · Recursos para empresas</a>
+    <a href="#s8" class="indice-link">B · Directorio para migrantes</a>
+  </div>
+</div>
+<!-- S1 -->
+<div class="acord" id="s1">
+<button class="acord-hd open" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">01</span><div><div class="acord-tit">Chile en cifras: <em>la migración en números</em></div><div class="acord-prev">1,6 millones de extranjeros · +68,6% en residencias · 49.114 solicitudes de nacionalización</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body open">
+  <p class="txt">Chile alberga <strong>1.608.650 extranjeros</strong> — el 8,8% de la población. El 41,6% son venezolanos. Esta es una transformación estructural del mercado laboral, no una tendencia pasajera.</p>
+  <div class="dato"><div class="dato-n">1.608.650</div><div class="dato-c"><h4>Extranjeros en Chile — Censo 2024</h4><p>Equivale a toda la RM de hace 20 años. Venezuela (41,6%), Colombia (14,9%), Perú (11,3%), Bolivia (8,3%).</p></div></div>
+  <p class="chart-label">Composición por nacionalidad — Chile 2024</p>
+  <div style="position:relative;width:100%;height:250px;margin-bottom:2rem;"><canvas id="c-nac" role="img" aria-label="Barras: Venezuela 41.6%, Colombia 14.9%, Peru 11.3%, Bolivia 8.3%, Haiti 6.2%, Otros 17.7%">Venezuela 41,6% · Colombia 14,9% · Perú 11,3% · Bolivia 8,3%</canvas></div>
+  <div class="grid-k">
+    <div class="kcard"><div class="kcard-n">+68,6%</div><div class="kcard-l">Aumento RT otorgadas 2025 vs 2024</div><div class="kcard-s">SERMIG 2026</div></div>
+    <div class="kcard"><div class="kcard-n">239.414</div><div class="kcard-l">Residencias Temporales otorgadas en 2025</div><div class="kcard-s">SERMIG 2026</div></div>
+    <div class="kcard"><div class="kcard-n">79,6%</div><div class="kcard-l">De las RT 2025 resueltas en menos de 1 año (vs 61,1% en 2024)</div><div class="kcard-s">SERMIG 2026</div></div>
+    <div class="kcard"><div class="kcard-n">73,6%</div><div class="kcard-l">De los migrantes en Chile está ocupado (vs 52,9% chilenos)</div><div class="kcard-s">CASEN/SERMIG</div></div>
+    <div class="kcard"><div class="kcard-n">49.114</div><div class="kcard-l">Solicitudes de nacionalización en 2024 — récord histórico</div><div class="kcard-s">SERMIG 2026</div></div>
+    <div class="kcard"><div class="kcard-n">58,7%</div><div class="kcard-l">De las Residencias Definitivas toma entre 1 y 2 años</div><div class="kcard-s">SERMIG 2026</div></div>
+  </div>
+  <p class="chart-label">Evolución residencias temporales otorgadas 2021–2025</p>
+  <div style="position:relative;width:100%;height:230px;margin-bottom:2rem;"><canvas id="c-rt" role="img" aria-label="Linea: 2021 70k, 2022 118k, 2023 142k, 2024 142k, 2025 239k">2021: 70.000 · 2025: 239.414</canvas></div>
+  <div class="cita"><p>"Los migrantes en Chile tienen una tasa de ocupación 20 puntos por encima de la población chilena. Son la fuerza laboral más activa del país."</p><span class="cita-f">CASEN / SERMIG — análisis Anteros Legal 2026</span></div>
+</div>
+</div>
+<!-- S2 -->
+<div class="acord" id="s2">
+<button class="acord-hd" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">02</span><div><div class="acord-tit">El migrante en Magallanes: <em>un perfil diferente</em></div><div class="acord-prev">Zona de asentamiento definitivo · +842% visas MERCOSUR · Fuerza laboral con contrato</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <p class="txt">Magallanes no es zona de tránsito — es zona de <strong>asentamiento definitivo</strong>. Quien llega, se instala. El migrante en Punta Arenas tiene contrato, trabaja y trae a su familia.</p>
+  <div style="display:grid;grid-template-columns:1fr 280px;gap:3rem;align-items:start;margin:2rem 0;">
+    <div>
+      <div class="perfil-g">
+        <div class="pfitem"><h4>Mayor peso de permisos ALR</h4><p>Los trabajadores llegan con Actividad Lícita Remunerada: tienen contrato formal en gastronomía, servicios, turismo y comercio.</p></div>
+        <div class="pfitem"><h4>Alta reunificación familiar</h4><p>Las familias eligen Punta Arenas como destino definitivo y se reagrupan aquí. No vienen solos — vienen con toda la familia.</p></div>
+        <div class="pfitem"><h4>Asentamiento permanente</h4><p>Mayor demanda de servicios legales de largo plazo: residencias definitivas, nacionalización y reunificación familiar.</p></div>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gris);margin-bottom:0.8rem;text-align:center;">Región de Magallanes</p>
+      <svg viewBox="0 0 200 440" width="100%" style="display:block;">
+        <path d="M110,8 C114,10 118,16 116,23 C120,29 121,39 116,48 C120,56 118,66 112,73 C116,82 114,94 108,103 C112,114 110,127 103,138 C107,150 104,165 97,177 C101,190 98,207 90,220 C94,234 90,252 81,266 C85,282 80,302 68,317 C72,334 66,354 53,369 C55,388 48,408 34,422 C35,438 27,456 15,466 C11,470 7,472 4,469 C8,455 13,442 11,429 C20,415 26,399 24,385 C37,370 42,352 40,336 C53,320 58,300 56,282 C68,265 71,246 69,230 C80,213 82,194 80,179 C90,165 91,147 89,133 C97,120 97,104 95,92 C102,79 102,63 100,52 C106,40 106,26 110,8 Z" fill="#ddd8cc" stroke="#7a7165" stroke-width="0.8"/>
+        <path d="M15,466 C11,472 7,476 4,473 C2,468 5,460 10,454 C16,446 22,438 26,428 C31,416 34,404 32,392 C41,380 47,366 45,353 C57,338 62,320 60,304 C71,288 74,270 72,254 C82,238 84,220 82,205 C92,190 93,172 91,158 C99,144 99,127 97,114 C104,100 104,84 102,73 C108,60 108,45 112,28 C115,23 119,20 124,21 C128,23 131,30 131,38 C136,47 136,58 131,67 C136,76 134,88 128,96 C132,106 130,119 124,130 C128,142 126,157 119,169 C123,182 120,199 112,212 C116,227 113,246 104,260 C108,276 103,297 90,311 C94,329 89,349 76,363 C79,382 70,402 56,415 C59,432 50,450 37,462 C32,466 28,469 24,467 C20,464 18,460 15,466 Z" fill="#c0392b" stroke="#8b1e1a" stroke-width="0.8" opacity="0.88"/>
+        <circle cx="46" cy="420" r="3.5" fill="#b8963e"/>
+        <line x1="50" y1="420" x2="65" y2="408" stroke="#b8963e" stroke-width="0.8"/>
+        <text x="67" y="412" font-family="Playfair Display,serif" font-size="9" fill="#0d0d0d" font-style="italic">Punta Arenas</text>
+        <circle cx="86" cy="200" r="2.5" fill="#7a7165"/>
+        <text x="91" y="204" font-family="IBM Plex Mono,monospace" font-size="7" fill="#7a7165">Santiago</text>
+        <rect x="4" y="428" width="10" height="6" fill="#c0392b" rx="1"/>
+        <text x="17" y="434" font-family="IBM Plex Mono,monospace" font-size="7" fill="#7a7165">Magallanes</text>
+        <text x="162" y="432" font-family="IBM Plex Mono,monospace" font-size="8" fill="#7a7165">N↑</text>
+      </svg>
+    </div>
+  </div>
+  <div class="dato"><div class="dato-n">+842%</div><div class="dato-c"><h4>Visas MERCOSUR para bolivianos — 2023 a 2025</h4><p>Desde sept. 2023, costo cero. Resultado: 129.220 visas en 2025 vs 13.700 en 2023. La mayoría con contrato laboral.</p></div></div>
+  <p class="chart-label">Visas MERCOSUR bolivianas otorgadas en Chile</p>
+  <div style="position:relative;width:100%;height:210px;margin-bottom:2rem;"><canvas id="c-merc" role="img" aria-label="Barras: 2023 13700, 2024 68000, 2025 129220">2023: 13.700 · 2024: 68.000 · 2025: 129.220</canvas></div>
+  <p class="txt"><strong>Lo que muchos empleadores no saben:</strong> el permiso MERCOSUR autoriza a trabajar, pero el empleador igualmente debe registrar el contrato y cotizar desde el primer día aunque la visa esté en trámite.</p>
+</div>
+</div>
+<!-- S3 -->
+<div class="acord" id="s3">
+<button class="acord-hd" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">03</span><div><div class="acord-tit">Los 5 errores legales <em>más comunes</em></div><div class="acord-prev">Patente vencida · Visa sin verificar · Sin registro DT · Sin resolución sanitaria · Tipo societario incorrecto</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <p class="txt">En 13 años de práctica en Punta Arenas, hemos visto los mismos errores repetirse. Estos son los que más frecuentemente terminan en multas, clausuras o conflictos laborales.</p>
+  <div style="margin:1.5rem 0;">
+    <div class="err-item"><div class="err-n">01</div><div class="err-c"><h4>Operar sin patente comercial vigente</h4><p>La patente municipal se renueva anualmente entre enero y marzo. Operativos periódicos — multa 1 a 5 UTM y puede derivar en clausura temporal.</p><span class="err-a">⚠ Fiscaliza: Municipalidad de Punta Arenas</span></div></div>
+    <div class="err-item"><div class="err-n">02</div><div class="err-c"><h4>Contratar trabajadores extranjeros sin verificar el tipo de visa</h4><p>No toda visa autoriza a trabajar. Un turista, visado en trámite o visa vencida no otorgan autorización laboral. Multas desde 3 UTM.</p><span class="err-a">⚠ Fiscaliza: Inspección del Trabajo + Extranjería</span></div></div>
+    <div class="err-item"><div class="err-n">03</div><div class="err-c"><h4>No registrar contratos en la Inspección del Trabajo</h4><p>El contrato con trabajador extranjero debe quedar registrado. Sin registro, el empleador no puede acreditar cumplimiento ante una fiscalización.</p><span class="err-a">⚠ Fiscaliza: Dirección del Trabajo</span></div></div>
+    <div class="err-item"><div class="err-n">04</div><div class="err-c"><h4>No tener resolución sanitaria vigente</h4><p>Crítico en gastronomía, alimentación y turismo. Tiene vigencia limitada y debe renovarse. El Seremi de Salud puede clausurar el local en el acto.</p><span class="err-a">⚠ Fiscaliza: Seremi de Salud Magallanes</span></div></div>
+    <div class="err-item"><div class="err-n">05</div><div class="err-c"><h4>Constituir empresa sin asesoría jurídica</h4><p>ReactChile facilita la constitución digital, pero no orienta sobre el tipo societario correcto. SRL vs SpA tiene consecuencias tributarias costosas de corregir después.</p><span class="err-a">⚠ Impacto: Tributario y de responsabilidad civil</span></div></div>
+  </div>
+  <p class="chart-label">Nivel de riesgo por tipo de error (1–5)</p>
+  <div style="position:relative;width:100%;height:210px;margin-bottom:1rem;"><canvas id="c-err" role="img" aria-label="Barras horizontales de riesgo por error">Nivel de riesgo 1 a 5 por cada error</canvas></div>
+</div>
+</div>
+<!-- S4 -->
+<div class="acord" id="s4">
+<button class="acord-hd" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">04</span><div><div class="acord-tit">Fiscalizaciones: <em>quién y por qué</em></div><div class="acord-prev">Gastronomía y turismo = riesgo alto · 23.778 expulsiones = riesgo para empleadores</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <p class="txt">No todos los rubros tienen el mismo riesgo. Estos son los sectores más fiscalizados en Magallanes y las infracciones que los organismos públicos priorizan.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Rubro</th><th>Organismo fiscalizador</th><th>Infracción más común</th><th>Riesgo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gastronomía</strong></td><td>Seremi Salud + Inspección Trabajo</td><td>Resolución sanitaria + contratos migrantes</td><td><span class="bd bd-r">Alto</span></td></tr>
+      <tr><td><strong>Turismo</strong></td><td>Sernatur + Inspección Trabajo</td><td>Habilitación + contratos migrantes</td><td><span class="bd bd-r">Alto</span></td></tr>
+      <tr><td><strong>Comercio</strong></td><td>Municipalidad + SII</td><td>Patente + boletas</td><td><span class="bd bd-d">Medio</span></td></tr>
+      <tr><td><strong>Construcción</strong></td><td>DOM + Inspección Trabajo</td><td>Permisos de obra + subcontratistas</td><td><span class="bd bd-d">Medio</span></td></tr>
+      <tr><td><strong>Transporte</strong></td><td>MTT</td><td>Habilitaciones vehiculares</td><td><span class="bd bd-g">Bajo-Medio</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="dato"><div class="dato-n">23.778</div><div class="dato-c"><h4>Expulsiones administrativas en 2025 — récord histórico</h4><p>Cada expulsión es también un problema para el empleador: vacante inmediata, posibles denuncias laborales y exposición a fiscalizaciones. La prevención es siempre más barata que la crisis.</p></div></div>
+  <p class="chart-label">Mapa de riesgo por rubro en Magallanes</p>
+  <div style="position:relative;width:100%;max-width:440px;height:320px;margin:0 auto 2rem;"><canvas id="c-rad" role="img" aria-label="Radar de riesgo fiscal por rubro">Gastronomía, turismo, comercio, construcción, transporte</canvas></div>
+</div>
+</div>
+<!-- S5 -->
+<div class="acord" id="s5">
+<button class="acord-hd" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">05</span><div><div class="acord-tit">Cambios legales 2026 <em>que impactan tu negocio</em></div><div class="acord-prev">40 horas · MERCOSUR actualizado · Sanitaria más estricta · ReactChile y sus riesgos</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <p class="txt">El marco normativo ha tenido cambios significativos en los últimos 12 meses. Estos son los más relevantes para los emprendedores de Magallanes.</p>
+  <div class="cambios-g">
+    <div class="cc"><span class="cc-tag">Laboral · Aplicación progresiva</span><h4>Ley de las 40 horas</h4><p>Los contratos deben actualizarse. Empleadores con trabajadores extranjeros tienen doble obligación: cumplir con la norma horaria y mantener el contrato vigente para la visa.</p></div>
+    <div class="cc"><span class="cc-tag">Migratorio · Nuevos requisitos</span><h4>Actualización visas laborales 2026</h4><p>Nuevas exigencias documentales para visas ALR y MERCOSUR. Actualizar formularios y verificar que los contratos cumplen los nuevos estándares de SERMIG.</p></div>
+    <div class="cc"><span class="cc-tag">Sanitario · Mayor exigencia</span><h4>Nuevas exigencias sanitarias</h4><p>La Seremi de Salud ha reforzado los estándares de resolución sanitaria. Propietarios con resoluciones anteriores a 2023 deben verificar vigencia.</p></div>
+    <div class="cc"><span class="cc-tag">Societario · Digital pero con riesgos</span><h4>ReactChile y constitución digital</h4><p>La plataforma facilita la constitución en línea, pero el error más común es elegir el tipo societario incorrecto. SRL vs SpA tiene consecuencias tributarias importantes.</p></div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Cambio normativo</th><th>Impacto en emprendedores</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ley 40 horas</strong></td><td>Ajuste de contratos, especialmente trabajadores jóvenes y jornadas extendidas</td></tr>
+      <tr><td><strong>Visas laborales migrantes 2026</strong></td><td>Nuevos requisitos ALR y MERCOSUR — revisar contratos y documentación</td></tr>
+      <tr><td><strong>Exigencias sanitarias</strong></td><td>Resolución más estricta en gastronomía y turismo</td></tr>
+      <tr><td><strong>ReactChile</strong></td><td>Proceso digital más fácil, mayor riesgo de errores en tipo societario</td></tr>
+      <tr><td><strong>Aumento expulsiones</strong></td><td>Trabajadores en riesgo = empleadores en riesgo — compliance migratorio urgente</td></tr>
+    </tbody>
+  </table></div>
+</div>
+</div>
+
+<!-- S6 -->
+<div class="acord" id="s6">
+<button class="acord-hd" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">06</span><div><div class="acord-tit">Los 7 datos <em>que lo cambian todo</em></div><div class="acord-prev">Los números de mayor impacto del Barómetro 2026</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <div class="grid-k">
+    <div class="kcard"><div class="kcard-n">+842%</div><div class="kcard-l">Visas bolivianas MERCOSUR 2023 → 2025. ¿Tu empresa está preparada?</div></div>
+    <div class="kcard"><div class="kcard-n">44,8%</div><div class="kcard-l">De los hogares con trabajadores extranjeros tiene informalidad laboral — casi 1 de cada 2</div></div>
+    <div class="kcard"><div class="kcard-n">23.778</div><div class="kcard-l">Expulsiones en 2025 — récord histórico. La defensa temprana es esencial</div></div>
+    <div class="kcard"><div class="kcard-n">73,6%</div><div class="kcard-l">De los migrantes en Chile está ocupado (vs 52,9% de chilenos)</div></div>
+    <div class="kcard"><div class="kcard-n">1.608.650</div><div class="kcard-l">Extranjeros en Chile — equivale a la RM de hace 20 años</div></div>
+    <div class="kcard"><div class="kcard-n">49.114</div><div class="kcard-l">Solicitudes de nacionalización en 2024 — récord. Los migrantes quieren quedarse</div></div>
+    <div class="kcard"><div class="kcard-n">79,6%</div><div class="kcard-l">De las RT 2025 resueltas en menos de 1 año. Los tiempos mejoraron</div></div>
+  </div>
+  <p class="chart-label">RT resueltas en menos de 1 año: 2024 vs 2025</p>
+  <div style="position:relative;width:100%;height:170px;margin-bottom:2rem;"><canvas id="c-rtc" role="img" aria-label="Barras: 2024 61.1%, 2025 79.6%">2024: 61,1% · 2025: 79,6%</canvas></div>
+</div>
+</div>
+<!-- S7 -->
+<div class="acord" id="s7" style="background:rgba(236,231,216,0.35);">
+<button class="acord-hd" onclick="tog(this)" style="background:rgba(236,231,216,0.35);">
+  <div class="acord-left"><span class="acord-num">A</span><div><div class="acord-tit">Si eres empleador: <em>dónde verificar y regularizar</em></div><div class="acord-prev">SERMIG · Inspección del Trabajo · Seremi de Salud · Municipalidad · Registro Civil</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <p class="txt">Estos son los organismos públicos que debes conocer como empleador de trabajadores extranjeros en Magallanes. Cada uno puede fiscalizarte — y cada uno también puede ayudarte a regularizar antes de que llegue la multa.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Organismo</th><th>Para qué te sirve como empleador</th><th>Contacto en Punta Arenas</th><th>Horario</th></tr></thead>
+    <tbody>
+      <tr><td><strong>SERMIG</strong></td><td>Verificar visas. Consultar requisitos ALR y MERCOSUR. Regularizar antes de fiscalización.</td><td>Av. Manuel Bulnes #353<br><a href="https://tramites.serviciomigraciones.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">tramites.serviciomigraciones.cl</a></td><td>Lun, mié, jue<br>8:30–12:30</td></tr>
+      <tr><td><strong>Inspección del Trabajo</strong></td><td>Registrar contratos con extranjeros. Consultas laborales. Rectificar antes de sumario.</td><td><a href="https://www.dt.gob.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">www.dt.gob.cl</a> / 600 450 4000</td><td>Lun–vie 8:30–14:00</td></tr>
+      <tr><td><strong>Seremi de Salud</strong></td><td>Resolución sanitaria. Verificar vigencia. Solicitar renovación.</td><td>Angamos #58, PA · +56 61 2244631</td><td>Lun–vie 8:30–14:00</td></tr>
+      <tr><td><strong>Municipalidad</strong></td><td>Renovación de patente comercial (ene–mar). Consultar habilitaciones del local.</td><td>Pedro Montt #1176 · +56 61 2200500</td><td>Lun–vie 8:30–14:00</td></tr>
+      <tr><td><strong>Registro Civil</strong></td><td>Enrolamiento de trabajadores extranjeros (RUN). Verificar documentos de identidad.</td><td>I. Carrera Pinto #618 · <a href="https://www.registrocivil.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">registrocivil.cl</a></td><td>Lun–vie 8:30–14:00</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cita"><p>"El desconocimiento no exime la responsabilidad del empleador. Verificar el tipo de visa antes de firmar el contrato es la acción más importante que puede tomar una empresa."</p><span class="cita-f">Análisis Anteros Legal — Ley 21.325 de Migración y Extranjería</span></div>
+  <p class="txt" style="margin-top:1.5rem;">¿Tienes dudas sobre el cumplimiento de tu empresa? <a href="/consulta/" style="color:var(--rojo);font-weight:500;">Solicita una auditoría de compliance →</a></p>
+</div>
+</div>
+<!-- S8 -->
+<div class="acord" id="s8">
+<button class="acord-hd" onclick="tog(this)">
+  <div class="acord-left"><span class="acord-num">B</span><div><div class="acord-tit">Si eres migrante en Magallanes: <em>los recursos que existen aquí</em></div><div class="acord-prev">Orientación legal · Salud · Educación · Emergencias · Fuente: OIM Chile 2024</div></div></div>
+  <span class="acord-arr">▼</span>
+</button>
+<div class="acord-body">
+  <p class="txt">Directorio elaborado a partir del folleto de la <strong>OIM (ONU Migración)</strong> — Información Útil para Personas Refugiadas y Migrantes en la Región de Magallanes, actualizado a abril de 2024.</p>
+  <div class="dir-cat">Orientación legal y migratoria</div>
+  <div class="tw"><table>
+    <thead><tr><th>Organización</th><th>Para qué sirve</th><th>Contacto</th><th>Horario</th></tr></thead>
+    <tbody>
+      <tr><td><strong>SERMIG</strong></td><td>Residencias, trámites, expulsiones, refugio, integración</td><td>Av. Manuel Bulnes #353<br><a href="https://reservatuhora.serviciomigraciones.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">Agendar hora online</a></td><td>Lun, mié, jue<br>8:30–12:30</td></tr>
+      <tr><td><strong>INCAMI Magallanes</strong></td><td>Solicitudes de residencia, trámites, cartas explicativas. Atención gratuita con cita.</td><td>Fagnano #630, piso 2<br>📧 puntaarenas@incami.cl<br>💬 +56 944020367</td><td>Lun, mié, vie<br>9:00–13:00 (cita)</td></tr>
+      <tr><td><strong>INDH Magallanes</strong></td><td>Asesoría legal en expulsiones, refugio, discriminación. Sin documentación para consultar.</td><td>Croacia #499 · +56 94428 8309</td><td>Lun–jue 9:30–12:30<br>Vie 9:30–12:30</td></tr>
+      <tr><td><strong>CAJ — Asistencia Judicial</strong></td><td>Orientación jurídica: familia, civil, laboral. Defensa en decreto de expulsión.</td><td>Magallanes #809 / Julio Roca #1022</td><td>Mar, mié, jue 8:30–13:00</td></tr>
+      <tr><td><strong>SJM — MigrApp</strong></td><td>Regularización y derechos. App en varios idiomas para toda LATAM.</td><td><a href="https://www.migrapp.sjmchile.org" target="_blank" style="color:var(--rojo);">migrapp.sjmchile.org</a></td><td>Lun–vie 9:00–18:00</td></tr>
+      <tr><td><strong>ACNUR Chile</strong></td><td>Procedimientos de refugio, personas apátridas. Sin documentación para consultar.</td><td>Independencia #538<br>📧 albergue@fidexii.cl</td><td>Mar–jue 9:00–13:00</td></tr>
+    </tbody>
+  </table></div>
+  <div class="dir-cat">Salud — derechos fundamentales</div>
+  <div class="der-g">
+    <div class="der-c"><span style="font-size:1.3rem;flex-shrink:0;">✅</span><div><h4>Acceso universal</h4><p>Toda persona en Chile tiene derecho a salud pública, independiente de su situación migratoria.</p></div></div>
+    <div class="der-c"><span style="font-size:1.3rem;flex-shrink:0;">🤰</span><div><h4>Embarazo</h4><p>Acceso completo durante embarazo, parto y hasta 12 meses postparto. Ningún centro puede negar atención.</p></div></div>
+    <div class="der-c"><span style="font-size:1.3rem;flex-shrink:0;">🚨</span><div><h4>Urgencias</h4><p>La Ley de Urgencias garantiza atención en cualquier establecimiento. No pueden exigir dinero en garantía.</p></div></div>
+    <div class="der-c"><span style="font-size:1.3rem;flex-shrink:0;">📝</span><div><h4>Sin NIP</h4><p>Si estás irregular, ve al CESFAM más cercano y solicita Servicio Social para tramitar el NIP.</p></div></div>
+  </div>
+  <div class="tw"><table>
+    <thead><tr><th>Servicio</th><th>Qué ofrece</th><th>Contacto</th><th>Horario</th></tr></thead>
+    <tbody>
+      <tr><td><strong>CESFAM Carlos Ibáñez</strong></td><td>Atención primaria. Gestión NIP para migrantes sin documentos regulares.</td><td>Av. Eduardo Frei #1102 · +56 612282579</td><td>Lun–vie 8:00–20:00</td></tr>
+      <tr><td><strong>CESFAM Dr. Lautaro Navarro</strong></td><td>Atención primaria. Urgencias SAPU 24 hrs.</td><td>Los Flamencos #01364 · +56 612293000</td><td>24 hrs.</td></tr>
+      <tr><td><strong>FONASA Magallanes</strong></td><td>Seguro público. Tramo A gratuito para migrantes sin recursos.</td><td>Bories #432 · +56 61 2291696<br><a href="https://www.fonasa.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">fonasa.cl</a></td><td>Lun–vie 8:40–14:00</td></tr>
+      <tr><td><strong>Hospital Clínico Magallanes</strong></td><td>Urgencias. Sin restricción por situación migratoria.</td><td>Los Flamencos #01364 · +56 61 2293000</td><td>24 hrs.</td></tr>
+      <tr><td><strong>Salud Responde</strong></td><td>Orientación por profesionales. Sin documentación necesaria.</td><td>600.360.7777 · <a href="https://www.saludresponde.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">saludresponde.cl</a></td><td>24 hrs.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="dir-cat">Educación — derechos y cómo acceder</div>
+  <p class="txt">La educación <strong>no puede negarse</strong> por situación migratoria irregular del niño, niña o adolescente ni de sus padres. Todos los NNA tienen derecho a matricularse.</p>
+  <div class="tw"><table>
+    <thead><tr><th>Servicio</th><th>Para qué</th><th>Contacto</th><th>Horario</th></tr></thead>
+    <tbody>
+      <tr><td><strong>SECREDUC Magallanes</strong> (5–18 años)</td><td>Matrícula escolar. IPE para NNA sin documentos. <a href="https://www.solicitud-ipe.mineduc.cl" target="_blank" style="color:var(--rojo);font-size:0.76rem;">Solicitar IPE online</a></td><td>I. Carrera Pinto #1259 · +56 612740200</td><td>Lun, mié, vie 9:00–12:30</td></tr>
+      <tr><td><strong>JUNJI</strong> (0–4 años)</td><td>Jardines infantiles. Acepta pasaporte, cédula o acta de nacimiento.</td><td>José Menéndez #788 · +56 612223253</td><td>Lun–jue 8:30–17:30</td></tr>
+      <tr><td><strong>Fundación Integra</strong> (0–4 años)</td><td>Salas cuna y jardines. Mismo requisito de documentación que JUNJI.</td><td>José Menéndez #756, 2° piso · +56 61 2297300</td><td>Lun–jue 8:30–17:30</td></tr>
+    </tbody>
+  </table></div>
+  <div class="dir-cat">Teléfonos de emergencia — gratis, sin saldo</div>
+  <div class="tel-g">
+    <div class="tel-i"><div class="tel-n">133</div><div class="tel-l">Carabineros</div></div>
+    <div class="tel-i"><div class="tel-n">131</div><div class="tel-l">Ambulancia SAMU</div></div>
+    <div class="tel-i"><div class="tel-n">132</div><div class="tel-l">Bomberos</div></div>
+    <div class="tel-i"><div class="tel-n">134</div><div class="tel-l">PDI</div></div>
+    <div class="tel-i"><div class="tel-n">1455</div><div class="tel-l">Violencia contra la mujer</div></div>
+    <div class="tel-i"><div class="tel-n">600.360.7777</div><div class="tel-l">Salud Responde</div></div>
+  </div>
+  <p style="font-size:0.68rem;color:var(--gris);margin-top:1.5rem;font-family:'IBM Plex Mono',monospace;">Fuente: OIM Chile — Información Útil para Personas Refugiadas y Migrantes en la Región de Magallanes y la Antártica Chilena. Actualizado abril 2024. <a href="https://chile.iom.int" target="_blank" style="color:var(--gris);">chile.iom.int</a></p>
+</div>
+</div>
+<!-- CTA + FOOTER + JS -->
+<section class="cta-f">
+  <div>
+    <h2>¿Tu empresa está<br>en <em>regla</em>?</h2>
+    <p>Si tienes dudas sobre el estado legal de tu empresa, tus contratos con trabajadores extranjeros o las patentes y habilitaciones vigentes, el siguiente paso es una consulta con nosotros. Rápida, directa y sin compromiso.</p>
+    <div><a href="https://api.whatsapp.com/message/J5RDLFI23SHDI1?autoload=1&app_absent=0" class="btn-p" target="_blank">WhatsApp directo →</a><a href="https://calendly.com/anteroslegal" class="btn-s" target="_blank">Agendar diagnóstico</a></div>
+  </div>
+  <div class="sv-g">
+    <div class="sv-i"><span style="font-size:1.1rem;">🏢</span><div><div class="sv-n">Compliance Migratorio Empresarial</div><div class="sv-d">Auditoría, contratos y certificación de empleador regular</div></div></div>
+    <div class="sv-i"><span style="font-size:1.1rem;">⚡</span><div><div class="sv-n">Auditoría ante Fiscalización</div><div class="sv-d">Si ya recibiste notificación, actuamos de inmediato</div></div></div>
+    <div class="sv-i"><span style="font-size:1.1rem;">📋</span><div><div class="sv-n">Constitución de Empresas</div><div class="sv-d">SpA, EIRL, SRL con asesoría jurídica en 48 horas</div></div></div>
+    <div class="sv-i"><span style="font-size:1.1rem;">⚖️</span><div><div class="sv-n">Legal Partner Mensual</div><div class="sv-d">Asesoría continua — consultas ilimitadas</div></div></div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Anteros Legal SpA · Punta Arenas, Chile</span>
+  <span>Fuentes: SERMIG Reporte Nº5 · Censo 2024 · CASEN · OIM Chile 2024</span>
+  <div style="display:flex;gap:1.5rem;"><a href="/">Inicio</a><a href="/privacidad/">Privacidad</a><a href="/consulta/">Consulta</a></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+(function(){
+  const ok=sessionStorage.getItem('barometro_acceso');
+  if(!ok){const p=document.getElementById('puerta');p.style.display='flex';}
+  const n=sessionStorage.getItem('barometro_nombre');
+  if(n){const s=document.querySelector('.portada-sub');if(s){const sp=document.createElement('span');sp.style.cssText='display:block;font-family:IBM Plex Mono,monospace;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(244,240,230,0.35);margin-top:1rem;';sp.textContent='Preparado para '+n;s.appendChild(sp);}}
+})();
+
+function tog(btn){
+  const b=btn.nextElementSibling;
+  const isO=b.classList.contains('open');
+  btn.classList.toggle('open',!isO);
+  b.classList.toggle('open',!isO);
+  if(!isO)setTimeout(()=>btn.scrollIntoView({behavior:'smooth',block:'start'}),50);
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const first=document.querySelector('.acord-hd');
+  if(first&&!first.classList.contains('open'))tog(first);
+});
+
+document.querySelectorAll('.indice-link').forEach(l=>{
+  l.addEventListener('click',()=>{
+    const t=document.querySelector(l.getAttribute('href'));
+    if(!t)return;
+    const btn=t.querySelector('.acord-hd');
+    if(btn&&!btn.classList.contains('open'))tog(btn);
+  });
+});
+
+const ROJO='#c0392b',DORADO='#b8963e',GRIS='#aaa8a0',VERDE='#1a5a30';
+
+new Chart(document.getElementById('c-nac'),{type:'bar',data:{labels:['Venezuela','Colombia','Perú','Bolivia','Haití','Otros'],datasets:[{label:'% migrante',data:[41.6,14.9,11.3,8.3,6.2,17.7],backgroundColor:[ROJO,DORADO,GRIS,'#c9803a','#5a7a5a','#6a8a9a'],borderRadius:2}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'%'}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%'},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false}}}}});
+
+new Chart(document.getElementById('c-rt'),{type:'line',data:{labels:['2021','2022','2023','2024','2025'],datasets:[{label:'Residencias Temporales',data:[70000,118000,142000,142000,239414],borderColor:ROJO,backgroundColor:'rgba(192,57,43,0.1)',tension:0.35,fill:true,pointBackgroundColor:ROJO,pointRadius:5}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('es-CL')}}},scales:{y:{beginAtZero:false,ticks:{callback:v=>v>=1000?Math.round(v/1000)+'k':v},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false}}}}});
+
+new Chart(document.getElementById('c-merc'),{type:'bar',data:{labels:['2023','2024','2025'],datasets:[{label:'Visas MERCOSUR bolivianas',data:[13700,68000,129220],backgroundColor:[GRIS,DORADO,ROJO],borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('es-CL')+' visas'}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v>=1000?Math.round(v/1000)+'k':v},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false}}}}});
+
+new Chart(document.getElementById('c-err'),{type:'bar',data:{labels:['Constitución sin asesoría','Sin resolución sanitaria','Sin registro en DT','Visa sin verificar','Patente vencida'],datasets:[{label:'Nivel de riesgo (1–5)',data:[4,5,4,5,3],backgroundColor:[DORADO,ROJO,DORADO,ROJO,GRIS],borderRadius:2}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x+' / 5'}}},scales:{x:{beginAtZero:true,max:5,ticks:{stepSize:1},grid:{color:'rgba(0,0,0,0.05)'}},y:{grid:{display:false}}}}});
+
+new Chart(document.getElementById('c-rad'),{type:'radar',data:{labels:['Gastronomía','Turismo','Comercio','Construcción','Transporte'],datasets:[{label:'Riesgo fiscal',data:[5,5,3,3,2],backgroundColor:'rgba(192,57,43,0.15)',borderColor:ROJO,pointBackgroundColor:ROJO,pointRadius:5,pointHoverRadius:7}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{r:{min:0,max:5,ticks:{stepSize:1,callback:v=>v===0?'':v===5?'Muy alto':v===3?'Medio':v===1?'Bajo':''},grid:{color:'rgba(0,0,0,0.08)'},angleLines:{color:'rgba(0,0,0,0.08)'}}}}});
+
+new Chart(document.getElementById('c-rtc'),{type:'bar',data:{labels:['2024','2025'],datasets:[{label:'% RT resueltas en menos de 1 año',data:[61.1,79.6],backgroundColor:[GRIS,ROJO],borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'%'}}},scales:{y:{beginAtZero:false,min:50,max:85,ticks:{callback:v=>v+'%'},grid:{color:'rgba(0,0,0,0.05)'}},x:{grid:{display:false}}}}});
+</script>
+</body>
+</html>

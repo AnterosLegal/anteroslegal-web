@@ -535,12 +535,12 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="/" class="nav-logo">
+  <a href="https://anteroslegal.github.io/anteroslegal/" class="nav-logo">
     <img src="images/logonegro.jpg" alt="Anteros Legal" onerror="this.style.display='none'">
     <span class="nav-logo-text">Anteros Legal</span>
   </a>
   <ul class="nav-links">
-    <li><a href="/">Inicio</a></li>
+    <li><a href="https://anteroslegal.github.io/anteroslegal/">Inicio</a></li>
     <li><a href="la-firma/">La Firma</a></li>
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="responsabilidad-social/">Responsabilidad Social</a></li>
@@ -902,6 +902,23 @@
 
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5px;background:rgba(255,255,255,0.06);">
 
+    <!-- Barómetro Migratorio (GRATIS) -->
+    <div class="producto-card">
+      <div class="producto-img-wrap">
+        <img src="images/barometro.jpg" alt="Barómetro Migratorio Chile 2026" onerror="this.parentElement.style.background='#1a1a1a'">
+        <span class="producto-badge producto-badge--gold">Gratis</span>
+      </div>
+      <div class="producto-body">
+        <h3 class="producto-titulo">Barómetro Migratorio Chile 2026</h3>
+        <p class="producto-desc">Reporte trimestral con cifras, tendencias y movimientos legislativos clave del panorama migratorio en Chile. Acceso gratuito con tu correo.</p>
+        <div class="producto-precio">
+          <span class="precio-clp">Gratis</span>
+          <span class="precio-usd">Acceso inmediato</span>
+        </div>
+        <a href="https://josemanuelsimons.github.io/" class="btn-comprar" target="_blank">Acceder →</a>
+      </div>
+    </div>
+
     <!-- Producto 1 -->
     <div class="producto-card">
       <div class="producto-img-wrap">
@@ -1087,24 +1104,24 @@
     </div>
     <div class="contacto-form-wrap">
       <h3>Cuéntanos tu caso</h3>
-      <form onsubmit="sendContact(event)" id="contact-form">
+      <form onsubmit="sendContact(event)">
         <div class="form-row">
           <div class="form-group">
             <label>Nombre</label>
-            <input type="text" placeholder="Tu nombre" required id="contact-nombre">
+            <input type="text" placeholder="Tu nombre" required>
           </div>
           <div class="form-group">
             <label>Teléfono / WhatsApp</label>
-            <input type="tel" placeholder="+56 / +58 / +57..." id="contact-telefono">
+            <input type="tel" placeholder="+56 / +58 / +57...">
           </div>
         </div>
         <div class="form-group">
           <label>Correo Electrónico</label>
-          <input type="email" placeholder="tu@correo.com" required id="contact-email">
+          <input type="email" placeholder="tu@correo.com" required>
         </div>
         <div class="form-group">
           <label>Tipo de consulta</label>
-          <select required id="contact-tipo">
+          <select required>
             <option value="">Selecciona una opción</option>
             <optgroup label="Personas">
               <option>Residencia Temporal (primera vez)</option>
@@ -1129,9 +1146,9 @@
         </div>
         <div class="form-group">
           <label>Describe brevemente tu situación</label>
-          <textarea placeholder="Cuéntanos en qué situación te encuentras y qué necesitas..." required id="contact-descripcion"></textarea>
+          <textarea placeholder="Cuéntanos en qué situación te encuentras y qué necesitas..." required></textarea>
         </div>
-        <button type="submit" class="form-submit" id="contact-btn">Enviar Consulta</button>
+        <button type="submit" class="form-submit">Enviar Consulta</button>
       </form>
     </div>
   </div>
@@ -1141,12 +1158,12 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="images/logo.jpg" alt="Anteros Legal">
+      <a href="https://anteroslegal.github.io/anteroslegal/" style="display:inline-block;"><img src="images/logo.jpg" alt="Anteros Legal" style="cursor:pointer;"></a>
       <p>Claridad legal para tu futuro en Chile. Expertos en migración, negocios y regularización. 13 años de experiencia.</p>
     </div>
     <div class="footer-col">
       <h4>Navegación</h4>
-      <a href="/">Inicio</a>
+      <a href="https://anteroslegal.github.io/anteroslegal/">Inicio</a>
       <a href="la-firma/">La Firma</a>
       <a href="#servicios">Servicios</a>
       <a href="responsabilidad-social/">Resp. Social</a>
@@ -1233,27 +1250,9 @@
     form.innerHTML = '<p style="color:var(--dorado);text-align:center;font-family:Cormorant Garamond,serif;font-size:1.15rem;padding:1rem 0;">✓ ¡Guía enviada a ' + email + '!<br><span style=\"font-size:0.8rem;color:var(--gris);font-family:DM Sans,sans-serif;\">Revisa tu bandeja de entrada.</span></p>';
   }
 
-  async function sendContact(e) {
+  function sendContact(e) {
     e.preventDefault();
-    const nombre = document.getElementById('contact-nombre').value.trim();
-    const telefono = document.getElementById('contact-telefono').value.trim();
-    const email = document.getElementById('contact-email').value.trim();
-    const tipo_consulta = document.getElementById('contact-tipo').value;
-    const descripcion = document.getElementById('contact-descripcion').value.trim();
-    const btn = document.getElementById('contact-btn');
-    if (!email || !nombre) return;
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-    try {
-      await fetch('https://hook.us2.make.com/16sf82b6ra6mz5aqevd9mzs7rn8ff1vi', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ nombre, telefono, email, tipo_consulta, descripcion, origen: 'Formulario de Contacto - anteroslegal.cl' })
-      });
-    } catch(err) { console.error(err); }
-    // Mostrar confirmación y dar opción de WhatsApp
-    const form = document.getElementById('contact-form');
-    form.innerHTML = '<p style="color:var(--negro);text-align:center;font-family:Cormorant Garamond,serif;font-size:1.3rem;padding:1rem 0 0.5rem;">✓ ¡Consulta enviada!</p><p style="color:var(--gris);text-align:center;font-size:0.88rem;line-height:1.6;padding:0 0 1.5rem;">Revisa tu correo — te enviamos una confirmación. Te contactaremos en menos de 24 horas.</p><a href="https://api.whatsapp.com/message/J5RDLFI23SHDI1?autoload=1&app_absent=0" target="_blank" style="display:block;width:100%;padding:1rem;background:#25D366;color:white;border:none;cursor:pointer;font-family:DM Sans,sans-serif;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;border-radius:2px;text-align:center;text-decoration:none;">¿Es urgente? Escríbenos por WhatsApp</a>';
+    window.open('https://api.whatsapp.com/message/J5RDLFI23SHDI1?autoload=1&app_absent=0', '_blank');
   }
 </script>
 </body>
